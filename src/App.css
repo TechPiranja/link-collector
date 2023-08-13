@@ -19,21 +19,21 @@ h1 {
 .linkCont input {
 	flex: 1;
 	border-radius: 5px;
-	border: 2px solid #2f3541;
+	border: 2px solid #1e2745;
 	padding: 5px;
 	font-size: 18px;
-	background: #2f3541;
+	background: #1e2745;
 	color: #f0f0f0;
 	font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
 }
 
 .linkCont button {
 	border-radius: 5px;
-	border: 2px solid #f25f54;
+	border: 2px solid #9bc681;
 	padding: 5px;
 	font-size: 18px;
 	font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
-	background: #f25f54;
+	background: #9bc681;
 	color: #fff;
 }
 
@@ -45,16 +45,67 @@ h1 {
 }
 
 .linkWrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 10px;
+	justify-items: center;
+	flex: 1;
+	border-radius: 5px;
+}
+
+.linkBox {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+	justify-content: center; /* Center content vertically */
+	text-align: center;
+	width: 100%; /* Fill available width */
+	height: 120px; /* Set the height of each box */
+	margin: 5px;
 	border-radius: 5px;
-	background: #2f3541;
-	flex: 1;
+	background-color: #1e2745;
+	overflow: hidden; /* Hide overflowing text */
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Initial shadow */
+	transition: transform 0.2s, box-shadow 0.2s; /* Add transition effects */
 }
 
-.linkWrapper a {
+.linkBox:hover {
+	transform: scale(1.05); /* Enlarge the box on hover */
+	animation: glow 1s infinite; /* Apply the glow animation on hover */
+}
+
+@keyframes glow {
+	0%,
+	100% {
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4), 0px 0px 20px rgba(0, 0, 0, 0.3);
+	}
+	50% {
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6), 0px 0px 40px rgba(0, 0, 0, 0.5);
+	}
+}
+
+.linkBox p {
+	text-decoration: none;
+	color: #fff;
+	width: 90%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.linkBox img {
+	margin-top: 10px;
+	width: 35px;
+	height: 35px;
+	padding: 1px;
+	object-fit: cover;
+	border-radius: 5px;
+	border: 1px solid #fff;
+	background: #fff;
+}
+
+.linkWrapper p {
 	margin: 5px;
 	font-size: 18px;
 	font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
@@ -63,4 +114,44 @@ h1 {
 	padding-right: 10px;
 	border-radius: 5px;
 	text-decoration: none;
+}
+
+.iconButton {
+	display: flex;
+	gap: 5px;
+	background: #9bc681;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	color: #fff;
+	font-size: 18px;
+	font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 35px;
+}
+
+.iconButton p {
+	margin: 0;
+	padding: 0;
+	line-height: 18px;
+}
+
+.collectionHeader {
+	margin: 30px 0px 10px 0px;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.deleteItem {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	border: none;
+	background: transparent;
+	color: #fff;
+	cursor: pointer;
 }
